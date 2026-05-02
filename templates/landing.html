@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApplyTrack — Land Your Dream Internship</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="landing-body">
+
+    <!-- NAV -->
+    <nav class="landing-nav">
+        <a href="/" class="landing-nav-logo">⚡ ApplyTrack</a>
+        <div class="landing-nav-links">
+            <a href="#features">Features</a>
+            <a href="#how">How it works</a>
+            <a href="#jobs">Opportunities</a>
+        </div>
+        <div class="landing-nav-actions">
+            <a href="{{ url_for('login') }}" class="landing-nav-login">Log in</a>
+            <a href="{{ url_for('register') }}" class="landing-nav-cta">Get Started Free</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-pill">🎯 Built for Sri Lankan SE students</div>
+        <h1 class="hero-headline">
+            Stop guessing.<br>
+            <span class="hero-highlight">Start tracking.</span>
+        </h1>
+        <p class="hero-desc">
+            The all-in-one internship tracker that organizes your applications,
+            tracks your progress, and keeps you accountable — so you actually land the job.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ url_for('register') }}" class="btn-hero-primary">Create Free Account →</a>
+            <a href="{{ url_for('login') }}" class="btn-hero-secondary">Sign in</a>
+        </div>
+        <p class="hero-note">Free forever · No credit card · Takes 30 seconds</p>
+
+        <!-- MOCK DASHBOARD PREVIEW -->
+        <div class="hero-preview">
+            <div class="preview-bar">
+                <span class="preview-dot red"></span>
+                <span class="preview-dot yellow"></span>
+                <span class="preview-dot green"></span>
+                <span class="preview-url">applytrack · dashboard</span>
+            </div>
+            <div class="preview-body">
+                <div class="preview-stats">
+                    <div class="preview-stat">
+                        <span class="ps-num" style="color:#6c63ff;">12</span>
+                        <span class="ps-label">Applied</span>
+                    </div>
+                    <div class="preview-stat">
+                        <span class="ps-num" style="color:#f7b731;">4</span>
+                        <span class="ps-label">Interviews</span>
+                    </div>
+                    <div class="preview-stat">
+                        <span class="ps-num" style="color:#43e97b;">2</span>
+                        <span class="ps-label">Offers</span>
+                    </div>
+                    <div class="preview-stat">
+                        <span class="ps-num" style="color:#ff6584;">3</span>
+                        <span class="ps-label">Rejected</span>
+                    </div>
+                </div>
+                <div class="preview-table">
+                    <div class="preview-row header-row">
+                        <span>Company</span><span>Role</span><span>Status</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="pr-company">WSO2</span>
+                        <span class="pr-role">SE Intern</span>
+                        <span class="pr-badge interview">Interview</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="pr-company">99x</span>
+                        <span class="pr-role">Full Stack Intern</span>
+                        <span class="pr-badge offer">Offer 🎉</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="pr-company">Sysco LABS</span>
+                        <span class="pr-role">AI/ML Intern</span>
+                        <span class="pr-badge applied">Applied</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="pr-company">Rootcode</span>
+                        <span class="pr-role">Backend Intern</span>
+                        <span class="pr-badge rejected">Rejected</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-bar-inner">
+            <div class="sb-stat">
+                <strong>500+</strong>
+                <span>Applications tracked</span>
+            </div>
+            <div class="sb-divider"></div>
+            <div class="sb-stat">
+                <strong>50+</strong>
+                <span>Students using it</span>
+            </div>
+            <div class="sb-divider"></div>
+            <div class="sb-stat">
+                <strong>20+</strong>
+                <span>Companies hiring</span>
+            </div>
+            <div class="sb-divider"></div>
+            <div class="sb-stat">
+                <strong>Free</strong>
+                <span>Forever plan</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="section-label">Why ApplyTrack</div>
+        <h2 class="section-heading">Everything you need.<br>Nothing you don't.</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>One place for everything</h3>
+                <p>Track every application — company, role, date, status, and notes — all in a single clean dashboard.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Insights at a glance</h3>
+                <p>See your applied, interview, offer, and rejection counts instantly. Know exactly where you stand.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Curated opportunities</h3>
+                <p>Discover live internship openings at top Sri Lankan tech companies — updated regularly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Secure & private</h3>
+                <p>Your data belongs to you. Login with Google or a username — your applications stay private.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Takes 30 seconds to start</h3>
+                <p>No setup, no tutorials. Register, log your first application, and you're tracking.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🆓</div>
+                <h3>Completely free</h3>
+                <p>No credit card. No hidden fees. No limits. Built by a student, for students.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+        <div class="how-inner">
+            <div class="section-label">How it works</div>
+            <h2 class="section-heading">From chaos to clarity<br>in three steps.</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Create your free account</h3>
+                    <p>Sign up in 30 seconds with Google or a username. No credit card needed.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Log your applications</h3>
+                    <p>Add the company, role, date applied, status, and any notes. Takes 10 seconds per entry.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Track & stay on top</h3>
+                    <p>Update statuses as you hear back. See your stats grow. Never lose track of an opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPPORTUNITIES -->
+    <section class="opportunities" id="jobs">
+        <div class="section-label">Open Positions</div>
+        <h2 class="section-heading">Start applying today.</h2>
+        <p class="section-sub">These companies are actively hiring interns in Sri Lanka right now.</p>
+        <div class="opp-grid">
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#6c63ff22;color:#6c63ff;">W</div>
+                    <div>
+                        <h4>WSO2</h4>
+                        <p>Software Engineering Intern</p>
+                    </div>
+                    <span class="opp-tag remote">Remote</span>
+                </div>
+                <div class="opp-skills"><span>Java</span><span>APIs</span><span>Open Source</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#ff634422;color:#ff6344;">9</div>
+                    <div>
+                        <h4>99x</h4>
+                        <p>Full Stack Intern</p>
+                    </div>
+                    <span class="opp-tag hybrid">Hybrid</span>
+                </div>
+                <div class="opp-skills"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#43e97b22;color:#43e97b;">S</div>
+                    <div>
+                        <h4>Sysco LABS</h4>
+                        <p>AI/ML Intern</p>
+                    </div>
+                    <span class="opp-tag onsite">On-site</span>
+                </div>
+                <div class="opp-skills"><span>Python</span><span>ML</span><span>Data</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#f7b73122;color:#f7b731;">R</div>
+                    <div>
+                        <h4>Rootcode Labs</h4>
+                        <p>Backend Intern</p>
+                    </div>
+                    <span class="opp-tag hybrid">Hybrid</span>
+                </div>
+                <div class="opp-skills"><span>Python</span><span>Flask</span><span>AWS</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#4299e122;color:#4299e1;">I</div>
+                    <div>
+                        <h4>IFS</h4>
+                        <p>Software Dev Intern</p>
+                    </div>
+                    <span class="opp-tag hybrid">Hybrid</span>
+                </div>
+                <div class="opp-skills"><span>Java</span><span>SQL</span><span>ERP</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+            <div class="opp-card">
+                <div class="opp-header">
+                    <div class="opp-logo" style="background:#ff658422;color:#ff6584;">C</div>
+                    <div>
+                        <h4>Calcey</h4>
+                        <p>Mobile Intern (Android)</p>
+                    </div>
+                    <span class="opp-tag onsite">On-site</span>
+                </div>
+                <div class="opp-skills"><span>Java</span><span>Android</span><span>Kotlin</span></div>
+                <a href="{{ url_for('register') }}" class="opp-apply">Track Application →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Your best internship hunt<br>starts now.</h2>
+            <p>Join students who stopped losing track of applications and started landing interviews.</p>
+            <a href="{{ url_for('register') }}" class="btn-hero-primary">Create Free Account →</a>
+            <p class="cta-note">Free forever · No credit card · 30 second setup</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="landing-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="landing-nav-logo">⚡ ApplyTrack</span>
+                <p>Built by a student, for students.<br>Sri Lanka 🇱🇰</p>
+            </div>
+            <div class="footer-links">
+                <a href="{{ url_for('login') }}">Log in</a>
+                <a href="{{ url_for('register') }}">Register</a>
+                <a href="#features">Features</a>
+                <a href="#jobs">Opportunities</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ApplyTrack. Free forever.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

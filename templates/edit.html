@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Application - ApplyTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="/" class="nav-logo">⚡ ApplyTrack</a>
+        <div class="nav-right">
+            <a href="{{ url_for('dashboard') }}" class="nav-link">← Back</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="page-header">
+            <h2>Edit Application</h2>
+            <p>Update the details of your application.</p>
+        </div>
+        <div class="form-container">
+            <form method="POST" class="app-form">
+                <label>Company Name</label>
+                <input type="text" name="company" value="{{ app.company }}" required>
+
+                <label>Role</label>
+                <input type="text" name="role" value="{{ app.role }}" required>
+
+                <label>Date Applied</label>
+                <input type="date" name="date" value="{{ app.date }}" required>
+
+                <label>Status</label>
+                <select name="status">
+                    {% for s in ['Applied', 'Interview', 'Offer', 'Rejected'] %}
+                    <option value="{{ s }}" {% if app.status == s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Notes</label>
+                <textarea name="notes">{{ app.notes or '' }}</textarea>
+
+                <button type="submit">Update Application</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

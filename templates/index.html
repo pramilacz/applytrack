@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - ApplyTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="/" class="nav-logo">⚡ ApplyTrack</a>
+        <div class="nav-right">
+            <a href="{{ url_for('add') }}" class="btn-primary">+ Add Application</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Header -->
+        <div class="hero-header">
+            <div class="hero-text">
+                <p class="hero-greeting">Good day,</p>
+                <h1 class="hero-name">{{ current_user.username }}</h1>
+                <p class="hero-sub">Your internship journey is in motion. Keep pushing.</p>
+            </div>
+            <div class="hero-badge">🚀</div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">📨</div>
+                <h3>{{ total }}</h3>
+                <p>Total Applied</p>
+                <div class="stat-bar" style="--fill: 100%; --color: #6c63ff;"></div>
+            </div>
+            <div class="stat-card interview">
+                <div class="stat-icon">🎤</div>
+                <h3>{{ interviews }}</h3>
+                <p>Interviews</p>
+                <div class="stat-bar" style="--fill: {% if total > 0 %}{{ (interviews / total * 100)|int }}{% else %}0{% endif %}%; --color: #f7b731;"></div>
+            </div>
+            <div class="stat-card offer">
+                <div class="stat-icon">🏆</div>
+                <h3>{{ offers }}</h3>
+                <p>Offers</p>
+                <div class="stat-bar" style="--fill: {% if total > 0 %}{{ (offers / total * 100)|int }}{% else %}0{% endif %}%; --color: #43e97b;"></div>
+            </div>
+            <div class="stat-card rejected">
+                <div class="stat-icon">↩️</div>
+                <h3>{{ rejected }}</h3>
+                <p>Rejected</p>
+                <div class="stat-bar" style="--fill: {% if total > 0 %}{{ (rejected / total * 100)|int }}{% else %}0{% endif %}%; --color: #ff6584;"></div>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="main-grid">
+
+            <!-- Applications Table -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">My Applications</h2>
+                    <a href="{{ url_for('add') }}" class="section-action">+ New</a>
+                </div>
+
+                {% if applications %}
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company & Role</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in applications %}
+                            <tr>
+                                <td>
+                                    <div class="company-name">{{ app.company }}</div>
+                                    <div class="role-name">{{ app.role }}</div>
+                                </td>
+                                <td class="date-cell">{{ app.date }}</td>
+                                <td><span class="badge {{ app.status.lower() }}">{{ app.status }}</span></td>
+                                <td>
+                                    <div class="actions">
+                                        <a href="{{ url_for('edit', id=app.id) }}" class="btn-edit">Edit</a>
+                                        <a href="{{ url_for('delete', id=app.id) }}" class="btn-delete"
+                                           onclick="return confirm('Delete this application?')">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="empty">
+                    <div class="empty-icon">📋</div>
+                    <h3>No applications yet</h3>
+                    <p>Start tracking your internship journey today.</p>
+                    <a href="{{ url_for('add') }}">+ Add your first application</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Jobs to Apply Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Opportunities</h2>
+                    <span class="live-badge">🟢 Live</span>
+                </div>
+                <div class="jobs-list">
+
+                    <div class="job-card">
+                        <div class="job-top">
+                            <div class="job-logo" style="background: #1a1aff22; color:#6c63ff;">W</div>
+                            <div class="job-info">
+                                <h4>WSO2</h4>
+                                <p>Software Engineering Intern</p>
+                            </div>
+                            <span class="job-type">Remote</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>Java</span><span>API</span><span>Open Source</span>
+                        </div>
+                        <div class="job-footer">
+                            <span class="job-location">📍 Colombo, LK</span>
+                            <a href="https://wso2.com/careers" target="_blank" class="job-apply">Apply →</a>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-top">
+                            <div class="job-logo" style="background: #ff634422; color:#ff6344;">9</div>
+                            <div class="job-info">
+                                <h4>99x</h4>
+                                <p>Full Stack Intern</p>
+                            </div>
+                            <span class="job-type">Hybrid</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>React</span><span>Node.js</span><span>PostgreSQL</span>
+                        </div>
+                        <div class="job-footer">
+                            <span class="job-location">📍 Colombo, LK</span>
+                            <a href="https://99x.io/careers" target="_blank" cla
